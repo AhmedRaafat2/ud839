@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word>  {
+    private View listItemView;
 
     public WordAdapter(Context context, ArrayList<Word> words) {
         super(context, 0, words);
@@ -20,7 +21,7 @@ public class WordAdapter extends ArrayAdapter<Word>  {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View listItemView = convertView;
+        listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
