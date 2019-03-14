@@ -42,7 +42,6 @@ public class NumbersActivity extends AppCompatActivity implements AdapterView.On
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // word_list.xml layout file.
         listView = (ListView) findViewById(R.id.list);
-        player = MediaPlayer.create(this,R.raw.number_one);
         listView.setOnItemClickListener(this);
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the

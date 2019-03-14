@@ -43,6 +43,7 @@ public class FamilyActivity extends AppCompatActivity implements AdapterView.OnI
         // word_list.xml layout file.
         ListView listView = (ListView) findViewById(R.id.list);
 
+        listView.setOnItemClickListener(this);
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);

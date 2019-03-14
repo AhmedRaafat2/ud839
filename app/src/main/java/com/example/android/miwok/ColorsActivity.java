@@ -42,6 +42,7 @@ public class ColorsActivity extends AppCompatActivity implements AdapterView.OnI
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // word_list.xml layout file.
         listView = (ListView) findViewById(R.id.list);
+        listView.setOnItemClickListener(this);
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.

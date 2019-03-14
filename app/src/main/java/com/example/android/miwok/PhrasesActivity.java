@@ -36,6 +36,7 @@ public class PhrasesActivity extends AppCompatActivity implements AdapterView.On
 
         WordAdapter adapter = new WordAdapter(this, words);
         ListView listView = (ListView) findViewById(R.id.list);
+        listView.setOnItemClickListener(this);
         listView.setAdapter(adapter);
     }
 
