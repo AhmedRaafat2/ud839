@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener{
+public class MainActivity extends AppCompatActivity implements OnClickListener, MediaPlayer.OnCompletionListener {
     private Button playBtn, pauseBtn, fiftyBtn;
     private MediaPlayer player;
 
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             public void onClick(View view) {
                 Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
                 startActivity(phrasesIntent);
+
             }
         });
     }
@@ -79,6 +81,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         switch (v.getId()){
             case R.id.playBtn:
                 player.start();
+                player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        Toast.makeText(MainActivity.this,"completed",Toast.LENGTH_SHORT).show();
+                        player.release();
+                    }
+                });
                 break;
             case R.id.pauseBtn:
                 player.pause();
@@ -86,5 +95,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             case R.id.fityPercentBtn:
                 break;
         }
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+
     }
 }
